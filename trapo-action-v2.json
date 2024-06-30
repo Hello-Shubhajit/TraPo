@@ -1,0 +1,5381 @@
+{
+  "name": "TraPo-action",
+  "type": "action",
+  "counts": {
+    "actions": 5,
+    "intents": 2,
+    "entities": 17,
+    "data_types": 0,
+    "collections": 0,
+    "global_variables": 0
+  },
+  "status": "Available",
+  "language": "en",
+  "skill_id": "8a8dc539-03fd-4b27-ae19-4611e30dd593",
+  "workspace": {
+    "actions": [
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "digression_failure",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't confirm if you wanted to return to previous topic, let me connect to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "digression_failure",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Failed to confirm topic return"
+                }
+              ]
+            },
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            },
+            "next_step": "step_004"
+          },
+          {
+            "step": "step_004",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_004",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Danger word detected"
+                }
+              ]
+            },
+            "next_step": "step_005"
+          },
+          {
+            "step": "step_005",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_005",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Profanity detected"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "Topic return failed",
+            "variable": "digression_failure",
+            "data_type": "any"
+          },
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems this conversation would be best managed",
+            "variable": "step_004",
+            "data_type": "any"
+          },
+          {
+            "title": "Profanity - It seems this conversation",
+            "variable": "step_005",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "run_always",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "danger_word_detected",
+            "title": "Connect to agent",
+            "handlers": [],
+            "resolver": {
+              "type": "fallback"
+            },
+            "variable": "danger_word_detected_variable",
+            "condition": {
+              "entity": "danger_words"
+            },
+            "next_step": "profanity_detected"
+          },
+          {
+            "step": "profanity_detected",
+            "title": "Show warning",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please use appropriate language when interacting with the assistant."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "max_hits",
+                "handler": "max_hits_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "max_hits": 2,
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "profanity_detected_variable",
+            "condition": {
+              "entity": "profane_words"
+            }
+          }
+        ],
+        "title": "Trigger word detected",
+        "action": "run_always",
+        "boosts": [],
+        "handlers": [],
+        "variables": [
+          {
+            "title": "Profanity detected",
+            "variable": "danger_word_detected_variable",
+            "data_type": "any"
+          },
+          {
+            "title": "Profane word detected",
+            "variable": "profanity_detected_variable",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else"
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_47924",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_864",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hello! I'm TraPo your travel partner chatbot. How can I assist you with ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Want travel advice?",
+                      "value": {
+                        "input": {
+                          "text": "Want travel advice?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Ready to book?",
+                      "value": {
+                        "input": {
+                          "text": "Ready to book?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Need help with budgeting?",
+                      "value": {
+                        "input": {
+                          "text": "Need help with budgeting?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Interested in specific activities or themes for your trip? ",
+                      "value": {
+                        "input": {
+                          "text": "Interested in specific activities or themes for your trip? "
+                        }
+                      }
+                    },
+                    {
+                      "label": "Need help planning your trip? ",
+                      "value": {
+                        "input": {
+                          "text": "Need help planning your trip? "
+                        }
+                      }
+                    },
+                    {
+                      "label": "Looking for destination ideas?",
+                      "value": {
+                        "input": {
+                          "text": "Looking for destination ideas?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Concerned about health or safety during your travels?",
+                      "value": {
+                        "input": {
+                          "text": "Concerned about health or safety during your travels?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Not sure where to start?",
+                      "value": {
+                        "input": {
+                          "text": "Not sure where to start?"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_36343",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_864",
+            "next_step": "step_301"
+          },
+          {
+            "step": "step_301",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I can suggest some popular places to visit!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Looking for a family vacation?",
+                      "value": {
+                        "input": {
+                          "text": "Looking for a family vacation?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "How about exploring vibrant cities ?",
+                      "value": {
+                        "input": {
+                          "text": "How about exploring vibrant cities ?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "For a relaxing beach vacation",
+                      "value": {
+                        "input": {
+                          "text": "For a relaxing beach vacation"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Enjoy hiking and stunning mountain views",
+                      "value": {
+                        "input": {
+                          "text": "Enjoy hiking and stunning mountain views"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Immerse yourself in rich cultural experiences",
+                      "value": {
+                        "input": {
+                          "text": "Immerse yourself in rich cultural experiences"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Discover ancient wonders",
+                      "value": {
+                        "input": {
+                          "text": "Discover ancient wonders"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Explore natural beauty and wildlife ",
+                      "value": {
+                        "input": {
+                          "text": "Explore natural beauty and wildlife "
+                        }
+                      }
+                    },
+                    {
+                      "label": "Indulge in culinary delights and wine tasting",
+                      "value": {
+                        "input": {
+                          "text": "Indulge in culinary delights and wine tasting"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Seek adrenaline-pumping adventures",
+                      "value": {
+                        "input": {
+                          "text": "Seek adrenaline-pumping adventures"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Explore lesser-known but charming destinations",
+                      "value": {
+                        "input": {
+                          "text": "Explore lesser-known but charming destinations"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_12997",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_301",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_864"
+                },
+                {
+                  "value": "Looking for destination ideas?",
+                  "from_entity": "entity_36343"
+                }
+              ]
+            },
+            "next_step": "step_911"
+          },
+          {
+            "step": "step_911",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://www.google.com/search?q=vibrant+cities+in+the+world&sca_esv=f40edf4f2454a80a&ei=1vmAZvagK8-"
+                          },
+                          {
+                            "scalar": "hseMPuOGx0AM&oq=vibrant+cities&gs_lp=Egxnd3Mtd2l6LXNlcnAiDnZpYnJhbnQgY2l0aWVzKgIIAjIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYRzIKEAAYsAMY1gQYR0iWE1AAWABwAXgBkAEAmAEAoAEAqgEAuAEByAEAmAIBoAIFmAMAiAYBkAYIkgcBMaAHAA&sclient=gws-wiz-serp)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_911",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "How about exploring vibrant cities ?",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_593"
+          },
+          {
+            "step": "step_593",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_593",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "For a relaxing beach vacation",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_592"
+          },
+          {
+            "step": "step_592",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_592",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "Enjoy hiking and stunning mountain views",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_925"
+          },
+          {
+            "step": "step_925",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://www.google.com/search?q=rich+cultural+heritage+places+in+the+world&sca_esv=f40edf4f2454a80a&ei=s_qAZqzDLf2fseMP87eWsAI&oq=rich+cultural+herit+in+the+world&gs_lp=Egxnd3Mtd2l6LXNlcnAiIHJpY2ggY3VsdHVyYWwgaGVyaXQgaW4gdGhlIHdvcmxkKgIIAjIKECEYoAEYwwQYCjIKECEYoAEYwwQYCjIKECEYoAEYwwQYCki7bFAAWOI-"
+                          },
+                          {
+                            "scalar": "cAB4AZABAJgB6QKgAakfqgEIMC4xMy4zLjO4AQPIAQD4AQGYAhGgAskawgIGEAAYBxgewgIIEAAYBxgKGB7CAgcQABiABBgNwgIKEAAYBxgIGAoYHsICCBAAGAcYCBgewgIKEAAYBRgHGAoYHsICCBAAGAUYDRgewgILEAAYgAQYhgMYigXCAggQABiABBiiBMICChAAGAUYChgNGB7CAggQIRigARjDBJgDAJIHCDAuMTIuNC4xoAf1hwE&sclient=gws-wiz-serp)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_925",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "Immerse yourself in rich cultural experiences",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_791"
+          },
+          {
+            "step": "step_791",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://www.google.com/search?q=ancient+wonders+places+in+the+world&sca_esv=f40edf4f2454a80a&ei=7vqAZrCZOouO4-EPzfmzUA&ved=0ahUKEwiwyMKn2YKHAxULxzgGHc38DAoQ4dUDCBA&uact=5&oq=ancient+wonders+places+in+the+world&gs_lp=Egxnd3Mtd2l6LXNlcnAiI2FuY2llbnQgd29uZGVycyBwbGFjZXMgaW4gdGhlIHdvcmxkMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiiBBiJBUj-"
+                          },
+                          {
+                            "scalar": "T1D0CViVPHADeACQAQCYAbUCoAGnHaoBCDAuMTIuNi4xuAEDyAEA-AEBmAISoAK2FsICChAAGLADGNYEGEfCAggQABgHGAoYHsICCBAAGAcYCBgewgIIEAAYBRgHGB7CAgoQABgFGAcYChgewgILEAAYgAQYhgMYigXCAgYQABgHGB7CAgcQABiABBgNwgIKEAAYBxgIGB4YD8ICCBAAGAUYDRgewgILEAAYgAQYkQIYigXCAgYQABgFGB7CAggQABgFGAoYHsICBhAAGAgYHsICCBAAGAgYHhgPmAMAiAYBkAYIkgcFMy45LjagB-WDAQ&sclient=gws-wiz-serp)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_791",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "Discover ancient wonders",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_328"
+          },
+          {
+            "step": "step_328",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://www.google.com/search?q=explore+natural+beauty+and+wildlife+places+in+the+world&sca_esv=f40edf4f2454a80a&ei=PvuAZuS0IMqa4-"
+                          },
+                          {
+                            "scalar": "EPybis0Ak&ved=0ahUKEwjky7vN2YKHAxVKzTgGHUkcC5oQ4dUDCBA&uact=5&oq=explore+natural+beauty+and+wildlife+places+in+the+world&gs_lp=Egxnd3Mtd2l6LXNlcnAiN2V4cGxvcmUgbmF0dXJhbCBiZWF1dHkgYW5kIHdpbGRsaWZlIHBsYWNlcyBpbiB0aGUgd29ybGQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIESM9qULkEWJZgcAJ4AZABAJgB9wGgAf8uqgEGMC4zMi40uAEDyAEA-"
+                          },
+                          {
+                            "scalar": "AEBmAIjoAKJK8ICChAAGLADGNYEGEfCAgYQABgHGB7CAgUQABiABMICCBAAGAUYBxgewgIIEAAYBxgIGB7CAgYQABgIGB7CAgsQABiABBiGAxiKBcICChAhGKABGMMEGArCAggQIRigARjDBJgDAIgGAZAGCJIHBjIuMzAuM6AH9MMB&sclient=gws-wiz-serp)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_328",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "Explore natural beauty and wildlife ",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_148"
+          },
+          {
+            "step": "step_148",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://www.linkedin.com/pulse/explore-world-culinary-delights-10-must-visit-food-2023-tunex-travels)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_148",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "Indulge in culinary delights and wine tasting",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_580"
+          },
+          {
+            "step": "step_580",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://www.getaway.co.za/travel/travel-ideas/top-10-adrenaline-junkie-activities-around-the-world/)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_580",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "Seek adrenaline-pumping adventures",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_870"
+          },
+          {
+            "step": "step_870",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://www.adventureclues.com/articles/36-unknown-places-in-the-world-that-will-take-your-breath-away/)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_870",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "Explore lesser-known but charming destinations",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_103"
+          },
+          {
+            "step": "step_103",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure you can explore these places:\n->[link](https://www.timeout.com/things-to-do/best-cities-in-the-world)"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_103",
+            "condition": {
+              "and": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_301"
+                    },
+                    {
+                      "value": "How about exploring vibrant cities ?",
+                      "from_entity": "entity_12997"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_301"
+                    },
+                    {
+                      "value": "How about exploring vibrant cities ?",
+                      "from_entity": "entity_12997"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_231"
+          },
+          {
+            "step": "step_231",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Consider places like"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Orlando (for theme parks)",
+                      "value": {
+                        "input": {
+                          "text": "Orlando (for theme parks)"
+                        }
+                      }
+                    },
+                    {
+                      "label": "London",
+                      "value": {
+                        "input": {
+                          "text": "London"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Sydney ",
+                      "value": {
+                        "input": {
+                          "text": "Sydney "
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_21281",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_231",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_301"
+                },
+                {
+                  "value": "Looking for a family vacation?",
+                  "from_entity": "entity_12997"
+                }
+              ]
+            },
+            "next_step": "step_521"
+          },
+          {
+            "step": "step_521",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Would you like to go for further booking procedure ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_521",
+            "condition": {
+              "or": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_231"
+                    },
+                    {
+                      "value": "Orlando (for theme parks)",
+                      "from_entity": "entity_21281"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_231"
+                    },
+                    {
+                      "value": "London",
+                      "from_entity": "entity_21281"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_231"
+                    },
+                    {
+                      "value": "Sydney ",
+                      "from_entity": "entity_21281"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_318"
+          },
+          {
+            "step": "step_318",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Searching for ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Whole package ?",
+                      "value": {
+                        "input": {
+                          "text": "Whole package ?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Flight/Train tickets ?",
+                      "value": {
+                        "input": {
+                          "text": "Flight/Train tickets ?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Hotels?",
+                      "value": {
+                        "input": {
+                          "text": "Hotels?"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_3730",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_318",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_521"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_614"
+          },
+          {
+            "step": "step_614",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thank You"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_614",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_521"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            },
+            "next_step": "step_245"
+          },
+          {
+            "step": "step_245",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Want a call from our executive side ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_245",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_864"
+                },
+                {
+                  "value": "Need help planning your trip? ",
+                  "from_entity": "entity_36343"
+                }
+              ]
+            },
+            "next_step": "step_143"
+          },
+          {
+            "step": "step_143",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Our executive will call you within 5mins."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_143",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_245"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_484"
+          },
+          {
+            "step": "step_484",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Want to continue further ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_484",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_245"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            },
+            "next_step": "step_136"
+          },
+          {
+            "step": "step_136",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What you are searching for ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Destination Selection",
+                      "value": {
+                        "input": {
+                          "text": "Destination Selection"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Travel Dates",
+                      "value": {
+                        "input": {
+                          "text": "Travel Dates"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Accommodation",
+                      "value": {
+                        "input": {
+                          "text": "Accommodation"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Transportation",
+                      "value": {
+                        "input": {
+                          "text": "Transportation"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Activities and Attractions",
+                      "value": {
+                        "input": {
+                          "text": "Activities and Attractions"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Budget Planning",
+                      "value": {
+                        "input": {
+                          "text": "Budget Planning"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Travel Documents",
+                      "value": {
+                        "input": {
+                          "text": "Travel Documents"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Travel Insurance",
+                      "value": {
+                        "input": {
+                          "text": "Travel Insurance"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Packing Tips",
+                      "value": {
+                        "input": {
+                          "text": "Packing Tips"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Local Information",
+                      "value": {
+                        "input": {
+                          "text": "Local Information"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Weather Forecast",
+                      "value": {
+                        "input": {
+                          "text": "Weather Forecast"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Health and Safety Tips",
+                      "value": {
+                        "input": {
+                          "text": "Health and Safety Tips"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Feedback and Reviews",
+                      "value": {
+                        "input": {
+                          "text": "Feedback and Reviews"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Currency Conversion",
+                      "value": {
+                        "input": {
+                          "text": "Currency Conversion"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Post-Trip Suggestions",
+                      "value": {
+                        "input": {
+                          "text": "Post-Trip Suggestions"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_34536",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_136",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_484"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_637"
+          },
+          {
+            "step": "step_637",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Our executive will call you within 5mins"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_637",
+            "condition": {
+              "or": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Destination Selection",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Travel Dates",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Accommodation",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Transportation",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Activities and Attractions",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Budget Planning",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Travel Documents",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Travel Insurance",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Packing Tips",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Local Information",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Weather Forecast",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Health and Safety Tips",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Feedback and Reviews",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Currency Conversion",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_136"
+                    },
+                    {
+                      "value": "Post-Trip Suggestions",
+                      "from_entity": "entity_34536"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_839"
+          },
+          {
+            "step": "step_839",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thank You"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_839",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_484"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            },
+            "next_step": "step_393"
+          },
+          {
+            "step": "step_393",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What your are searching for ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Health Precautions",
+                      "value": {
+                        "input": {
+                          "text": "Health Precautions"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Safety Tips",
+                      "value": {
+                        "input": {
+                          "text": "Safety Tips"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Travel Alerts",
+                      "value": {
+                        "input": {
+                          "text": "Travel Alerts"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Food and Water Safety",
+                      "value": {
+                        "input": {
+                          "text": "Food and Water Safety"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Emergency Preparedness",
+                      "value": {
+                        "input": {
+                          "text": "Emergency Preparedness"
+                        }
+                      }
+                    },
+                    {
+                      "label": "COVID-19 Guidelines",
+                      "value": {
+                        "input": {
+                          "text": "COVID-19 Guidelines"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_33085",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_393",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_864"
+                },
+                {
+                  "value": "Concerned about health or safety during your travels?",
+                  "from_entity": "entity_36343"
+                }
+              ]
+            },
+            "next_step": "step_234"
+          },
+          {
+            "step": "step_234",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Stay in a well-ventilated single-room preferably with an attached / separate toilet. If another family member needs to stay in the same room, it's advisable to maintain a distance of at least 1 meter between the two."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_234",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_393"
+                },
+                {
+                  "value": "COVID-19 Guidelines",
+                  "from_entity": "entity_33085"
+                }
+              ]
+            },
+            "next_step": "step_635"
+          },
+          {
+            "step": "step_635",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Vaccinations: Have you checked if you need any vaccinations for your destination?\nMedication: Do you have enough of your prescription meds? It's good to carry a copy of your prescriptions too."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_635",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_393"
+                },
+                {
+                  "value": "Health Precautions",
+                  "from_entity": "entity_33085"
+                }
+              ]
+            },
+            "next_step": "step_237"
+          },
+          {
+            "step": "step_237",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Local Laws: Did you know about any specific laws or customs there?\nEmergency Contacts: Would you like emergency numbers like police or embassy contacts?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_237",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_393"
+                },
+                {
+                  "value": "Safety Tips",
+                  "from_entity": "entity_33085"
+                }
+              ]
+            },
+            "next_step": "step_955"
+          },
+          {
+            "step": "step_955",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "An emergency kit should contain everything you need to survive on your own for several days. In addition to packing basics like food, water, a first aid kit and a flashlight, you may want to consider other items specific to your car. This can include: Jumper cables."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_955",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_393"
+                },
+                {
+                  "value": "Emergency Preparedness",
+                  "from_entity": "entity_33085"
+                }
+              ]
+            },
+            "next_step": "step_152"
+          },
+          {
+            "step": "step_152",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "In areas where hygiene and sanitation are inadequate or unknown, travelers should avoid consuming salads, uncooked vegetables, raw unpeeled fruits, and unpasteurized fruit juices. Fruits that can be peeled are safest when peeled by the person who eats them. Advise travelers to rinse produce with safe water"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_152",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_393"
+                },
+                {
+                  "value": "Food and Water Safety",
+                  "from_entity": "entity_33085"
+                }
+              ]
+            },
+            "next_step": "step_596"
+          },
+          {
+            "step": "step_596",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Travel warnings identify a long-term danger in a given country, either cautioning people against going there or informing them of the risk they'll face. Alerts, in contrast, involve temporary occurrences, such as a hurricane or a public demonstration. Safety while traveling is always top priority."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_596",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_393"
+                },
+                {
+                  "value": "Travel Alerts",
+                  "from_entity": "entity_33085"
+                }
+              ]
+            },
+            "next_step": "step_893"
+          },
+          {
+            "step": "step_893",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Searching for ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Whole package ?",
+                      "value": {
+                        "input": {
+                          "text": "Whole package ?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Flight/Train tickets ?",
+                      "value": {
+                        "input": {
+                          "text": "Flight/Train tickets ?"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Hotels ?",
+                      "value": {
+                        "input": {
+                          "text": "Hotels ?"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_4683",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_893",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_864"
+                },
+                {
+                  "value": "Ready to book?",
+                  "from_entity": "entity_36343"
+                }
+              ]
+            },
+            "next_step": "step_499"
+          },
+          {
+            "step": "step_499",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How many members are there ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Enter a number."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_499",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_893"
+                },
+                {
+                  "value": "Whole package ?",
+                  "from_entity": "entity_4683"
+                }
+              ]
+            },
+            "next_step": "step_104"
+          },
+          {
+            "step": "step_104",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Your budget would be ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "High ",
+                      "value": {
+                        "input": {
+                          "text": "High "
+                        }
+                      }
+                    },
+                    {
+                      "label": "Medium",
+                      "value": {
+                        "input": {
+                          "text": "Medium"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Low",
+                      "value": {
+                        "input": {
+                          "text": "Low"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_45495",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_104",
+            "condition": {
+              "exists": {
+                "variable": "step_499"
+              }
+            },
+            "next_step": "step_940"
+          },
+          {
+            "step": "step_940",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Searching for ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Train",
+                      "value": {
+                        "input": {
+                          "text": "Train"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Flight",
+                      "value": {
+                        "input": {
+                          "text": "Flight"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_46104",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_940",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_893"
+                },
+                {
+                  "value": "Flight/Train tickets ?",
+                  "from_entity": "entity_4683"
+                }
+              ]
+            },
+            "next_step": "step_260"
+          },
+          {
+            "step": "step_260",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How many members are there ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Enter a number."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_260",
+            "condition": {
+              "or": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_940"
+                    },
+                    {
+                      "value": "Train",
+                      "from_entity": "entity_46104"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_940"
+                    },
+                    {
+                      "value": "Flight",
+                      "from_entity": "entity_46104"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_336"
+          },
+          {
+            "step": "step_336",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Going Date ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "response_type": "date",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-date",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_336",
+            "condition": {
+              "exists": {
+                "variable": "step_260"
+              }
+            },
+            "next_step": "step_859"
+          },
+          {
+            "step": "step_859",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Your budget would be ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "High",
+                      "value": {
+                        "input": {
+                          "text": "High"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Medium",
+                      "value": {
+                        "input": {
+                          "text": "Medium"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Low",
+                      "value": {
+                        "input": {
+                          "text": "Low"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_32323",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_859",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_336"
+                },
+                {
+                  "time": {
+                    "value": "2024-06-30"
+                  }
+                }
+              ]
+            },
+            "next_step": "step_615"
+          },
+          {
+            "step": "step_615",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How many members are there ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Enter a number."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_615",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_893"
+                },
+                {
+                  "value": "Hotels ?",
+                  "from_entity": "entity_4683"
+                }
+              ]
+            },
+            "next_step": "step_448"
+          },
+          {
+            "step": "step_448",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Your budget would be ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "High",
+                      "value": {
+                        "input": {
+                          "text": "High"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Medium",
+                      "value": {
+                        "input": {
+                          "text": "Medium"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Low",
+                      "value": {
+                        "input": {
+                          "text": "Low"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_44817",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_448",
+            "condition": {
+              "or": [
+                {
+                  "exists": {
+                    "variable": "step_615"
+                  }
+                },
+                {
+                  "exists": {
+                    "variable": "step_499"
+                  }
+                }
+              ]
+            },
+            "next_step": "step_358"
+          },
+          {
+            "step": "step_358",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "This will be the total expenditure _____________."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_358",
+            "condition": {
+              "or": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_448"
+                    },
+                    {
+                      "value": "High",
+                      "from_entity": "entity_44817"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_448"
+                    },
+                    {
+                      "value": "Medium",
+                      "from_entity": "entity_44817"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_448"
+                    },
+                    {
+                      "value": "Low",
+                      "from_entity": "entity_44817"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_859"
+                    },
+                    {
+                      "value": "High",
+                      "from_entity": "entity_32323"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_859"
+                    },
+                    {
+                      "value": "Low",
+                      "from_entity": "entity_32323"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_859"
+                    },
+                    {
+                      "value": "Medium",
+                      "from_entity": "entity_32323"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_104"
+                    },
+                    {
+                      "value": "High ",
+                      "from_entity": "entity_45495"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_104"
+                    },
+                    {
+                      "value": "Medium",
+                      "from_entity": "entity_45495"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_104"
+                    },
+                    {
+                      "value": "Low",
+                      "from_entity": "entity_45495"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_490"
+          },
+          {
+            "step": "step_490",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Where do you want to visit ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_490",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_864"
+                },
+                {
+                  "value": "Interested in specific activities or themes for your trip? ",
+                  "from_entity": "entity_36343"
+                }
+              ]
+            },
+            "next_step": "step_475"
+          },
+          {
+            "step": "step_475",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Sure here is the list of all ongoing local activities:\n->\n->\n->\n->\n->\n->\n->\n->\nWant a call from the local guide ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_475",
+            "condition": {
+              "exists": {
+                "variable": "step_490"
+              }
+            },
+            "next_step": "step_624"
+          },
+          {
+            "step": "step_624",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thank You"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_624",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_475"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            },
+            "next_step": "step_235"
+          },
+          {
+            "step": "step_235",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Our executive will call you within 5 mins."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_235",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_475"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_249"
+          },
+          {
+            "step": "step_249",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Where do you want to travel ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_249",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_864"
+                },
+                {
+                  "value": "Need help with budgeting?",
+                  "from_entity": "entity_36343"
+                }
+              ]
+            },
+            "next_step": "step_804"
+          },
+          {
+            "step": "step_804",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How many members are travelling in total ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Enter a number."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_804",
+            "condition": {
+              "exists": {
+                "variable": "step_249"
+              }
+            },
+            "next_step": "step_229"
+          },
+          {
+            "step": "step_229",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How many days you want to stay and explore there ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Enter a number."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_229",
+            "condition": {
+              "exists": {
+                "variable": "step_804"
+              }
+            },
+            "next_step": "step_909"
+          },
+          {
+            "step": "step_909",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Your budget would be ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "High",
+                      "value": {
+                        "input": {
+                          "text": "High"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Medium",
+                      "value": {
+                        "input": {
+                          "text": "Medium"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Low",
+                      "value": {
+                        "input": {
+                          "text": "Low"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_4442",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_909",
+            "condition": {
+              "exists": {
+                "variable": "step_229"
+              }
+            },
+            "next_step": "step_190"
+          },
+          {
+            "step": "step_190",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "This will be the total expenditure _____________."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_190",
+            "condition": {
+              "or": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_909"
+                    },
+                    {
+                      "value": "Low",
+                      "from_entity": "entity_4442"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_909"
+                    },
+                    {
+                      "value": "Medium",
+                      "from_entity": "entity_4442"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_909"
+                    },
+                    {
+                      "value": "High",
+                      "from_entity": "entity_4442"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_320"
+          },
+          {
+            "step": "step_320",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What you are searching for ?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true
+            },
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_320",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_864"
+                },
+                {
+                  "value": "Not sure where to start?",
+                  "from_entity": "entity_36343"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "TraPo",
+        "action": "action_47924",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_47924_intent_11705"
+        },
+        "variables": [
+          {
+            "title": "Sure you can explore these places: ->[link](https://www.timeout.",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_103",
+            "data_type": "any"
+          },
+          {
+            "title": "Your budget would be ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_104",
+            "data_type": "any"
+          },
+          {
+            "title": "What you are searching for ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_136",
+            "data_type": "any"
+          },
+          {
+            "title": "Our executive will call you within 5mins.",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_143",
+            "data_type": "any"
+          },
+          {
+            "title": "Sure you can explore these places: ->[link](https://www.linkedin",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_148",
+            "data_type": "any"
+          },
+          {
+            "title": "In areas where hygiene and sanitation are inadequate or unknown,",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_152",
+            "data_type": "any"
+          },
+          {
+            "title": "This will be the total expenditure _____________.",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_190",
+            "data_type": "any"
+          },
+          {
+            "title": "How many days you want to stay and explore there ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_229",
+            "data_type": "number"
+          },
+          {
+            "title": "Consider places like",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_231",
+            "data_type": "any"
+          },
+          {
+            "title": "Stay in a well-ventilated single-room preferably with an attache",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_234",
+            "data_type": "any"
+          },
+          {
+            "title": "Our executive will call you within 5 mins.",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_235",
+            "data_type": "any"
+          },
+          {
+            "title": "Local Laws: Did you know about any specific laws or customs ther",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_237",
+            "data_type": "any"
+          },
+          {
+            "title": "Want a call from our executive side ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_245",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "Where do you want to travel ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_249",
+            "data_type": "any"
+          },
+          {
+            "title": "How many members are there ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_260",
+            "data_type": "number"
+          },
+          {
+            "title": "I can suggest some popular places to visit!",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_301",
+            "data_type": "any"
+          },
+          {
+            "title": "Searching for ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_318",
+            "data_type": "any"
+          },
+          {
+            "title": "What you are searching for ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_320",
+            "data_type": "any"
+          },
+          {
+            "title": "Sure you can explore these places: ->[link](https://www.google.c",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_328",
+            "data_type": "any"
+          },
+          {
+            "title": "Going Date ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_336",
+            "data_type": "date"
+          },
+          {
+            "title": "This will be the total expenditure _____________.",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_358",
+            "data_type": "any"
+          },
+          {
+            "title": "What your are searching for ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_393",
+            "data_type": "any"
+          },
+          {
+            "title": "Your budget would be ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_448",
+            "data_type": "any"
+          },
+          {
+            "title": "Sure here is the list of all ongoing local activities: -> -> -> ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_475",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "Want to continue further ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_484",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "Where do you want to visit ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_490",
+            "data_type": "any"
+          },
+          {
+            "title": "How many members are there ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_499",
+            "data_type": "number"
+          },
+          {
+            "title": "Would you like to go for further booking procedure ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_521",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "Sure you can explore these places: ->[link](https://www.getaway.",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_580",
+            "data_type": "any"
+          },
+          {
+            "title": "Sure you can explore these places: ->[link](https://)",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_592",
+            "data_type": "any"
+          },
+          {
+            "title": "Sure you can explore these places: ->[link](https://)",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_593",
+            "data_type": "any"
+          },
+          {
+            "title": "Travel warnings identify a long-term danger in a given country, ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_596",
+            "data_type": "any"
+          },
+          {
+            "title": "Thank You",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_614",
+            "data_type": "any"
+          },
+          {
+            "title": "How many members are there ?",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_615",
+            "data_type": "number"
+          },
+          {
+            "title": "Thank You",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_624",
+            "data_type": "any"
+          },
+          {
+            "title": "Vaccinations: Have you checked if you need any vaccinations for ",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_635",
+            "data_type": "any"
+          },
+          {
+            "title": "Our executive will call you within 5mins",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_637",
+            "data_type": "any"
+          },
+          {
+            "title": "Sure you can explore these places: ->[link](https://www.google.c",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_791",
+            "data_type": "any"
+          },
+          {
+            "title": "How many members are travelling in total ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_804",
+            "data_type": "number"
+          },
+          {
+            "title": "Thank You",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_839",
+            "data_type": "any"
+          },
+          {
+            "title": "Your budget would be ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_859",
+            "data_type": "any"
+          },
+          {
+            "title": "Hello! I'm TraPo your travel partner chatbot. How can I assist y",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_864",
+            "data_type": "any"
+          },
+          {
+            "title": "Sure you can explore these places: ->[link](https://www.adventur",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_870",
+            "data_type": "any"
+          },
+          {
+            "title": "Searching for ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_893",
+            "data_type": "any"
+          },
+          {
+            "title": "Your budget would be ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_909",
+            "data_type": "any"
+          },
+          {
+            "title": "Sure you can explore these places: ->[link](https://www.google.c",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_911",
+            "data_type": "any"
+          },
+          {
+            "title": "Sure you can explore these places: ->[link](https://www.google.c",
+            "privacy": {
+              "enabled": true
+            },
+            "variable": "step_925",
+            "data_type": "any"
+          },
+          {
+            "title": "Searching for ?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_940",
+            "data_type": "any"
+          },
+          {
+            "title": "An emergency kit should contain everything you need to survive o",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_955",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      }
+    ],
+    "intents": [
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "Call agent"
+          },
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to someone"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      },
+      {
+        "intent": "action_47924_intent_11705",
+        "examples": [
+          {
+            "text": "Hello or Hi"
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": "entity_4442",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "High",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Low",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Medium",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_32323",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Low",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "High",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Medium",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "profane_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_21281",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Sydney ",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Orlando (for theme parks)",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "London",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_3730",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Hotels?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Whole package ?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Flight/Train tickets ?",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_33085",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Health Precautions",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "COVID-19 Guidelines",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Travel Alerts",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Food and Water Safety",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Emergency Preparedness",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Safety Tips",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_45495",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Medium",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "High ",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Low",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_36343",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Need help planning your trip? ",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Need help with budgeting?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Ready to book?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Looking for destination ideas?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Concerned about health or safety during your travels?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Interested in specific activities or themes for your trip? ",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Want travel advice?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Not sure where to start?",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-date",
+        "values": []
+      },
+      {
+        "entity": "entity_44817",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "High",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Medium",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Low",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_46104",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Train",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Flight",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "danger_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "sys-number",
+        "values": []
+      },
+      {
+        "entity": "entity_34536",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Activities and Attractions",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Transportation",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Accommodation",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Post-Trip Suggestions",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Currency Conversion",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Feedback and Reviews",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Local Information",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Travel Insurance",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Travel Documents",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Budget Planning",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Health and Safety Tips",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Weather Forecast",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Packing Tips",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Destination Selection",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Travel Dates",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_4683",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Hotels ?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Flight/Train tickets ?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Whole package ?",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_12997",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Seek adrenaline-pumping adventures",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Explore natural beauty and wildlife ",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Discover ancient wonders",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Immerse yourself in rich cultural experiences",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Enjoy hiking and stunning mountain views",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "For a relaxing beach vacation",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "How about exploring vibrant cities ?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Looking for a family vacation?",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Indulge in culinary delights and wine tasting",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Explore lesser-known but charming destinations",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      },
+      "skill": {
+        "counts": {
+          "actions": 5,
+          "intents": 2,
+          "entities": 17,
+          "data_types": 0,
+          "collections": 0,
+          "global_variables": 0
+        }
+      }
+    },
+    "variables": [],
+    "data_types": [],
+    "collections": [],
+    "counterexamples": [],
+    "system_settings": {
+      "variable": {
+        "format": {
+          "time": {
+            "pattern": "short"
+          },
+          "currency": {
+            "fraction_digits": 2
+          }
+        }
+      },
+      "off_topic": {
+        "enabled": true
+      },
+      "auto_learn": {
+        "apply": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "enable_confirmation": true,
+          "confirmation_failure": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "I'm sorry, I did not catch that, please confirm."
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              }
+            ]
+          },
+          "confirmation_request": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "Do you want to continue with the previous topic: "
+                        },
+                        {
+                          "system_variable": "digressed_from"
+                        },
+                        {
+                          "scalar": "?"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              },
+              {
+                "options": [
+                  {
+                    "label": "Yes",
+                    "value": {
+                      "input": {
+                        "text": "Yes"
+                      }
+                    }
+                  },
+                  {
+                    "label": "No",
+                    "value": {
+                      "input": {
+                        "text": "No"
+                      }
+                    }
+                  }
+                ],
+                "response_type": "option",
+                "repeat_on_reprompt": true
+              }
+            ]
+          }
+        },
+        "max_tries": 3
+      },
+      "generative_ai": {
+        "slot_filling": {
+          "enabled": false
+        }
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above",
+        "use_connect_to_support_prompt": "Connect to support",
+        "single_answer_clarification_prompt": "Something else"
+      },
+      "search_routing": {
+        "target": "conversational_search"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false,
+    "language": "en"
+  },
+  "description": "created for assistant e3487560-3620-4f80-873b-7c20630128b2",
+  "dialog_settings": {
+    "source_assistant": "89948088-6727-47cb-b7fc-a7e1a7f78a59"
+  },
+  "created": "2024-06-30T07:42:36.050Z",
+  "updated": "2024-06-30T07:42:36.050Z",
+  "snapshot": "2",
+  "assistant_id": "e3487560-3620-4f80-873b-7c20630128b2",
+  "assistant_references": [
+    {
+      "name": "TraPo",
+      "assistant_id": "89948088-6727-47cb-b7fc-a7e1a7f78a59",
+      "skill_reference": "actions skill"
+    }
+  ]
+}
